@@ -20,32 +20,6 @@ class Main{
         // Purpose: Modular Division (a / b) % MOD via Fermat's Little Theorem | Input: long valA, long valB | Output: long
         public static long div(long a, long b) { long res = mul(a, inv(b)); DBG.log("Mod.div (" + a + "/" + b + ")", res); return res; }
     }
-
-    // Debug Utilities (Class: DBG)
-    static class DBG {
-        // Purpose: Log variable name and value | Input: String label, Object val | Output: void
-        public static void log(String label, Object val) { if (DEBUG) System.err.println("[DEBUG] " + label + " = " + (val instanceof int[] ? Arrays.toString((int[]) val) : val instanceof long[] ? Arrays.toString((long[]) val) : val instanceof Object[] ? Arrays.deepToString((Object[]) val) : val)); }
-        // Purpose: Print 2D char matrix | Input: String label, char[][] grid | Output: void
-        public static void grid(String label, char[][] g) { if (!DEBUG) return; System.err.println("[DEBUG GRID] " + label + ":"); for (char[] r : g) System.err.println("  " + new String(r)); }
-        // Purpose: Log execution milestone | Input: String infoMessage | Output: void
-        public static void msg(String info) { if (DEBUG) System.err.println("[DEBUG LOG] " + info); }
-    }
-
-    // Edge Case & Test Case Generator (Class: Gen)
-    static class Gen {
-        private static final Random rnd = new Random();
-        // Purpose: Generate random integer in range | Input: int minVal, int maxVal | Output: int
-        public static int i(int min, int max) { int val = min + rnd.nextInt(max - min + 1); DBG.log("Gen.i [" + min + "," + max + "]", val); return val; }
-        // Purpose: Generate random long in range | Input: long minVal, long maxVal | Output: long
-        public static long l(long min, long max) { long val = min + (long)(rnd.nextDouble() * (max - min + 1)); DBG.log("Gen.l [" + min + "," + max + "]", val); return val; }
-        // Purpose: Generate random integer array | Input: int size, int minVal, int maxVal | Output: int[]
-        public static int[] iArr(int sz, int min, int max) { int[] a = new int[sz]; for (int k = 0; k < sz; k++) a[k] = i(min, max); DBG.log("Gen.iArr", a); return a; }
-        // Purpose: Generate edge-case array (0, 1, -1, INT_MAX, INT_MIN) | Input: int size | Output: int[]
-        public static int[] edgeArr(int sz) { int[] a = new int[sz]; int[] pool = {0, 1, -1, Integer.MAX_VALUE, Integer.MIN_VALUE}; for (int k = 0; k < sz; k++) a[k] = pool[rnd.nextInt(pool.length)]; DBG.log("Gen.edgeArr", a); return a; }
-        // Purpose: Generate random lowercase English string | Input: int length | Output: String
-        public static String str(int len) { StringBuilder sb = new StringBuilder(); for (int k = 0; k < len; k++) sb.append((char)('a' + rnd.nextInt(26))); String res = sb.toString(); DBG.log("Gen.str", res); return res; }
-    }
-
     // Fast Input Reader (Class: IO)
     static class IO {
         private static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
