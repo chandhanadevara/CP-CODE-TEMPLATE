@@ -1,5 +1,5 @@
 # CP-CODE-TEMPLATE
-My Competetive programming code template
+My Competitive programming code template
 # Java Competitive Programming Template
 
 #  Classes Available
